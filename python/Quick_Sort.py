@@ -1,0 +1,25 @@
+### 퀵 정렬 알고리즘 python으로 구현
+def QuickSort(arr):
+    def sort(low, high):
+        if high <= low:
+            return
+        print(arr)
+        mid = partition(low, high)
+        sort(low, mid - 1)
+        sort(mid, high)
+
+    def partition(low, high):
+        pivot = arr[(low + high) // 2]
+        print(pivot)
+        while low <= high:
+            while arr[low] < pivot:
+                low += 1
+            while arr[high] > pivot:
+                high -= 1
+            if low <= high:
+                arr[low], arr[high] = arr[high], arr[low]
+                low, high = low + 1, high - 1
+            print(arr)
+        return low
+
+    return sort(0, len(arr) - 1)
